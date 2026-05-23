@@ -1,0 +1,17 @@
+.cart-icon {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  color: #000;
+  z-index: 1000;
+}
+
+.cart-dot {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 10px;
+  height: 10px;
+  background: green;
+  border-radius: 50%;
+}

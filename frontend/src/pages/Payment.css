@@ -1,0 +1,180 @@
+/* ===== PAGE BACKGROUND ===== */
+.payment-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fc, #eef1f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.payment-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  width: 100%;
+  max-width: 950px;
+}
+
+/* ===== DELIVERY SUMMARY ===== */
+/* ===== DELIVERY DETAILS CARD (PRO LEVEL) ===== */
+.delivery-summary {
+  background: linear-gradient(135deg, #fff1f2, #fff7ed);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #ff5f6d;
+}
+
+/* Title */
+.delivery-summary h3 {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Info rows */
+.delivery-info {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  row-gap: 12px;
+  column-gap: 10px;
+  font-size: 14px;
+}
+
+/* Label */
+.delivery-info span {
+  color: #555;
+  font-weight: 600;
+}
+
+/* Value */
+.delivery-info p {
+  margin: 0;
+  color: #222;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* Address box */
+.delivery-address {
+  grid-column: 1 / -1;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .delivery-info {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-info span {
+    font-size: 13px;
+    color: #777;
+  }
+}
+
+/* ===== PAYMENT FORM ===== */
+.checkout-form {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-form h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #222;
+}
+
+/* Stripe Card */
+.card-element {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  margin-bottom: 15px;
+}
+
+/* Error Message */
+.payment-error {
+  background: #ffe5e5;
+  color: #b00020;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* Pay Button */
+.checkout-form button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.checkout-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 95, 109, 0.4);
+}
+
+.checkout-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== PAYMENT SUCCESS ===== */
+.payment-success {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 18px;
+  text-align: center;
+  max-width: 420px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  animation: pop 0.4s ease;
+}
+
+.payment-success h2 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.payment-success p {
+  color: #555;
+  font-size: 15px;
+}
+
+/* Success animation */
+@keyframes pop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .payment-container {
+    grid-template-columns: 1fr;
+  }
+}

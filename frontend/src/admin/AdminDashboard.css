@@ -1,0 +1,175 @@
+/* ================= GLOBAL ================= */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #0f172a;
+  color: #e5e7eb;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ================= SIDEBAR ================= */
+.admin-sidebar {
+  width: 240px;
+  background: #020617;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  color: #f59e0b;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.nav-link {
+  background: #1e40af;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background: #2563eb;
+}
+
+.logout-btn {
+  margin-top: auto;
+  background: #dc2626;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ================= MAIN ================= */
+.admin-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.page-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* ================= FORM ================= */
+.product-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  background: #020617;
+  padding: 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.product-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1f2937;
+  color: #fff;
+}
+
+/* FILE INPUT FIX */
+.file-input {
+  color: transparent;
+}
+
+.file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.file-input::before {
+  content: "Choose Image";
+  background: #2563eb;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.inline-msg {
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+/* ================= TABLE ================= */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #020617;
+  border-radius: 10px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 14px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.admin-table th {
+  color: #f59e0b;
+}
+
+.admin-table tr:hover {
+  background: rgba(37, 99, 235, 0.15);
+}
+
+/* ================= IMAGE ================= */
+.product-img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #374151;
+}
+
+/* ================= ACTIONS ================= */
+.btn-delete {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+.btn-edit {
+  background: #f59e0b;
+  color: #000;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+}
