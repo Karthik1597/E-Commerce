@@ -1,25 +1,26 @@
-
 // backend/models/db.js
 import mysql from "mysql2";
 
-// Create a MySQL connection pool (recommended for production)
+// Create MySQL connection pool using environment variables
 export const db = mysql.createPool({
-  host: "localhost",       // Your MySQL host, usually localhost
-  user: "ecom_user",            // Your MySQL username
-  password: "shopify@123", // Replace with your MySQL password
-  database: "shopify", // Replace with your DB name
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT || 3306,
+
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
 });
 
-// Optional: test connection immediately
+// Test connection (safe for production)
 db.getConnection((err, connection) => {
   if (err) {
-    console.error("MySQL connection failed:", err);
-  } else {
-    console.log("Connected to MySQL database successfully!");
-    connection.release(); // release back to pool
+    console.error("❌ MySQL connection failed:", err.message);
+    return;
   }
-});
 
+  console.log("✅ Connected to MySQL database successfully!");
+  connection.release();
+});
