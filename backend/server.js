@@ -21,6 +21,10 @@ app.use("/api", orderRoutes);          // payment intent
 app.use("/api/auth", authRoutes);      // ✅ signup & login
 app.use("/uploads", express.static("uploads"));
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
