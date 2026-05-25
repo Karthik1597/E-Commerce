@@ -5,12 +5,14 @@ import { adminOnly } from "../middleware/adminAuth.js";
 const router = express.Router();
 
 // CREATE product
-router.post("/", adminOnly, async (req, res) => {
-  const { name, price, image } = req.body;
+router.post("/upload", async (req, res) => {
+  const { name, price, category } = req.body;
+
   await pool.query(
-    "INSERT INTO products (name, price, image) VALUES (?,?,?)",
-    [name, price, image]
+    "INSERT INTO products (name, price, category) VALUES (?,?,?)",
+    [name, price, category]
   );
+
   res.json({ message: "Product added" });
 });
 
