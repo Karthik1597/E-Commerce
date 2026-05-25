@@ -9,7 +9,7 @@ const AdminProducts = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:5000/api/admin/products");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/products`);
       setProducts(res.data);
     } catch (err) {
       console.error("Products fetch error:", err);

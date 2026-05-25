@@ -5,7 +5,7 @@ const AdminUsers = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/admin/users", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/admin/users`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
       },

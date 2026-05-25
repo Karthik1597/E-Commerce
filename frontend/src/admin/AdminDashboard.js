@@ -21,19 +21,19 @@ const AdminDashboard = () => {
   /* ================= FETCH DATA ================= */
   const fetchProducts = async () => {
     setActivePage("products");
-    const res = await axios.get("http://localhost:5000/api/admin/products");
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/products`);
     setProducts(res.data);
   };
 
   const fetchUsers = async () => {
     setActivePage("users");
-    const res = await axios.get("http://localhost:5000/api/admin/users");
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/users`);
     setUsers(res.data);
   };
 
   const fetchOrders = async () => {
     setActivePage("orders");
-    const res = await axios.get("http://localhost:5000/api/admin/orders");
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/orders`);
     setOrders(res.data);
   };
 
@@ -67,7 +67,7 @@ const AdminDashboard = () => {
       }
 
       await axios.post(
-        "http://localhost:5000/api/admin/products/upload",
+        axios.post(`${process.env.REACT_APP_API_URL}/api/admin/products/upload`),
         formData
       );
 
@@ -91,7 +91,7 @@ const AdminDashboard = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/products/${product.id}`,
+        (`${process.env.REACT_APP_API_URL}/api/admin/products/upload`),
         { name, price, category }
       );
       fetchProducts();
@@ -102,7 +102,7 @@ const AdminDashboard = () => {
 
   const deleteProduct = async (id) => {
     if (!window.confirm("Delete this product?")) return;
-    await axios.delete(`http://localhost:5000/api/admin/products/${id}`);
+    await axios.delete(`${process.env.REACT_APP_API_URL}/api/admin/products/${id}`);
     fetchProducts();
   };
 
