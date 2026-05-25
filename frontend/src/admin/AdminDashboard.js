@@ -67,9 +67,9 @@ const AdminDashboard = () => {
       }
 
       await axios.post(
-        axios.post(`${process.env.REACT_APP_API_URL}/api/admin/products/upload`),
-        formData
-      );
+  `${process.env.REACT_APP_API_URL}/api/admin/products`,
+  formData
+);
 
       setMessage("✅ Product added successfully");
       setNewProduct({ name: "", price: "", category: "", image_file: null });
@@ -91,9 +91,9 @@ const AdminDashboard = () => {
 
     try {
       await axios.put(
-        (`${process.env.REACT_APP_API_URL}/api/admin/products/upload`),
-        { name, price, category }
-      );
+  `${process.env.REACT_APP_API_URL}/api/admin/products/${product.id}`,
+  { name, price, category }
+);
       fetchProducts();
     } catch {
       alert("Failed to update product");
@@ -168,7 +168,7 @@ const AdminDashboard = () => {
               <td>{p.category}</td>
               <td>
                 {p.image_url && (
-                  <img src={p.image_url} alt={p.name} className="product-img" />
+                  <img src={`${process.env.REACT_APP_API_URL}${p.image_url}`} />
                 )}
               </td>
               <td>

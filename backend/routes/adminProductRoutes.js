@@ -1,16 +1,21 @@
 import express from "express";
 import pool from "../models/db.js";
 import { adminOnly } from "../middleware/adminAuth.js";
+import { upload } from "../middleware/upload.js";
 
 const router = express.Router();
 
 // CREATE product
-router.post("/upload", async (req, res) => {
+router.post("/", adminOnly, upload.single("image_file"), async (req, res) => {
   const { name, price, category } = req.body;
 
+  const image_url = req.file
+    ? `/uploads/${req.file.filename}`
+    : null;
+
   await pool.query(
-    "INSERT INTO products (name, price, category) VALUES (?,?,?)",
-    [name, price, category]
+    "INSERT INTO products (name, price, category, image_url) VALUES (?,?,?,?)",
+    [name, price, category, image_url]
   );
 
   res.json({ message: "Product added" });
