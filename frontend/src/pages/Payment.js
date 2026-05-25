@@ -38,7 +38,7 @@ const CheckoutForm = () => {
     try {
       // 1️⃣ Create payment intent
       const res = await fetch(
-        "http://localhost:5000/api/create-payment-intent",
+        `${process.env.REACT_APP_API_URL}/api/create-payment-intent`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -75,7 +75,7 @@ const CheckoutForm = () => {
       setLoading(false);
 
       // 4️⃣ SAVE ORDER (NON-BLOCKING 🔥)
-      fetch("http://localhost:5000/api/orders", {
+      fetch(`${process.env.REACT_APP_API_URL}/api/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

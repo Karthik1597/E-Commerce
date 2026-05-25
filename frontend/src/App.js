@@ -30,7 +30,7 @@ function App() {
       <Route path="/contact" element={<Contact />} />
 
       {/* ADMIN ROUTES */}
-      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/login" element={<AdminLogin />} /> n h4+
       <Route
         path="/admin/*"
         element={
