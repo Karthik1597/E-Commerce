@@ -67,7 +67,7 @@ const AdminDashboard = () => {
       }
 
       await axios.post(
-  `${process.env.REACT_APP_API_URL}/api/admin/products`,
+  `${process.env.REACT_APP_API_URL}/api/admin/products/upload`,
   formData
 );
 
