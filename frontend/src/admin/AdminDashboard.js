@@ -66,9 +66,14 @@ const AdminDashboard = () => {
         formData.append("image_file", newProduct.image_file);
       }
 
-      await axios.post(
+     await axios.post(
   `${process.env.REACT_APP_API_URL}/api/admin/products/upload`,
-  formData
+  formData,
+  {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  }
 );
 
       setMessage("✅ Product added successfully");

@@ -27,6 +27,10 @@ router.get("/products", (req, res) => {
 
 // CREATE product WITH image upload
 router.post("/products/upload", upload.single("image_file"), (req, res) => {
+
+  console.log(req.body);
+  console.log(req.file);
+
   const { name, price, category } = req.body;
 
   if (!name || !price) {
