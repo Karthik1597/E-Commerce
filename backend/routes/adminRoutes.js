@@ -34,8 +34,8 @@ router.post("/products/upload", upload.single("image_file"), (req, res) => {
   }
 
   const imageUrl = req.file
-    ? `http://localhost:5000/uploads/${req.file.filename}`
-    : "";
+  ? `/uploads/${req.file.filename}`
+  : "";
 
   const sql =
     "INSERT INTO products (name, price, category, image_url) VALUES (?, ?, ?, ?)";
