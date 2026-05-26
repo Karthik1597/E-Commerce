@@ -12,7 +12,9 @@ dotenv.config();
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 // ROUTES
 app.use("/api/admin", adminRoutes);
