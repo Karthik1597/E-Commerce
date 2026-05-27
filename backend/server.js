@@ -20,7 +20,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/orders", orderRoutes);   // order save + fetch
 app.use("/api", orderRoutes);          // payment intent
 app.use("/api/auth", authRoutes);      // ✅ signup & login
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("./uploads"));
 
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
