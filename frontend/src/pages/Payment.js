@@ -98,14 +98,33 @@ const CheckoutForm = () => {
     }
   };
 
-  if (success) {
-    return (
-      <div className="payment-success">
-        <h2>Payment Successful 🎉</h2>
-        <p>Your order has been placed successfully.</p>
-      </div>
-    );
-  }
+ if (success) {
+  return (
+    <div className="payment-success">
+      <h2>Payment Successful 🎉</h2>
+
+      <p>Your order has been placed successfully.</p>
+
+      <button
+        onClick={() => (window.location.href = "/")}
+        style={{
+          marginTop: "20px",
+          padding: "12px 20px",
+          background: "#2563eb",
+          color: "#fff",
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer",
+          fontSize: "16px",
+        }}
+      >
+        Back To Home
+      </button>
+    </div>
+  );
+}
+
+
 
   return (
     <div className="payment-container">
