@@ -26,16 +26,22 @@ router.get("/products", (req, res) => {
 });
 
 // CREATE product WITH image upload
-router.post("/products/upload", (req, res) => {
-  upload.single("image_file")(req, res, (err) => {
-    if (err) return res.status(500).json(err);
+router.post(
+  "/products/upload",
+  upload.single("image_file"),
+  (req, res) => {
+
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
 
     const name = req.body?.name;
     const price = req.body?.price;
     const category = req.body?.category;
 
     if (!name || !price) {
-      return res.status(400).json({ error: "Missing fields" });
+      return res.status(400).json({
+        error: "Missing fields",
+      });
     }
 
     const imageUrl = req.file
@@ -45,13 +51,21 @@ router.post("/products/upload", (req, res) => {
     db.query(
       "INSERT INTO products (name, price, category, image_url) VALUES (?, ?, ?, ?)",
       [name, price, category, imageUrl],
-      (err) => {
-        if (err) return res.status(500).json(err);
-        res.json({ message: "Product added" });
+      (err, result) => {
+
+        if (err) {
+          console.log(err);
+          return res.status(500).json(err);
+        }
+
+        res.json({
+          message: "Product added successfully",
+          id: result.insertId,
+        });
       }
     );
-  });
-});
+  }
+);
 
 // UPDATE product name
 router.put("/products/:id", (req, res) => {
