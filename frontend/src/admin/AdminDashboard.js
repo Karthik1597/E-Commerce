@@ -173,7 +173,10 @@ const AdminDashboard = () => {
               <td>{p.category}</td>
               <td>
                 {p.image_url && (
-                  <img src={`${process.env.REACT_APP_API_URL}${p.image_url}`} />
+                  <img
+  src={`${process.env.REACT_APP_API_URL}${p.image_url}`}
+  alt={p.name}
+/>
                 )}
               </td>
               <td>
