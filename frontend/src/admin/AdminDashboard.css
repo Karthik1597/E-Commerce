@@ -1,9 +1,15 @@
 /* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .admin-layout {
   display: flex;
   min-height: 100vh;
   background: #0f172a;
-  color: #e5e7eb;
+  color: #f1f5f9;
   font-family: "Segoe UI", sans-serif;
 }
 
@@ -14,22 +20,27 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid #1e293b;
 }
 
 .logo {
-  color: #f59e0b;
+  font-size: 28px;
+  font-weight: bold;
+  color: #38bdf8;
+  margin-bottom: 35px;
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .nav-link {
-  background: #1e40af;
-  color: #fff;
-  padding: 12px;
+  background: #1e293b;
+  color: white;
   border: none;
-  border-radius: 8px;
+  padding: 14px;
+  border-radius: 10px;
   margin-bottom: 12px;
   cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
 .nav-link:hover {
@@ -39,11 +50,16 @@
 .logout-btn {
   margin-top: auto;
   background: #dc2626;
-  color: #fff;
-  padding: 12px;
+  color: white;
   border: none;
-  border-radius: 8px;
+  padding: 14px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
 }
 
 /* ================= MAIN ================= */
@@ -53,102 +69,132 @@
 }
 
 .page-title {
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 32px;
+  margin-bottom: 24px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
 /* ================= FORM ================= */
 .product-form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-  background: #020617;
-  padding: 18px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  background: #111827;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 30px;
 }
 
 .product-form input {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  background: #1f2937;
-  color: #fff;
-}
-
-/* FILE INPUT FIX */
-.file-input {
-  color: transparent;
-}
-
-.file-input::-webkit-file-upload-button {
-  visibility: hidden;
-}
-
-.file-input::before {
-  content: "Choose Image";
-  background: #2563eb;
+  padding: 14px;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #1e293b;
   color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: inline-block;
+  font-size: 14px;
 }
 
-/* BUTTONS */
+.product-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+/* FILE INPUT */
+.file-input {
+  color: white;
+  background: #1e293b;
+  padding: 10px;
+}
+
+/* ================= BUTTONS ================= */
 .btn-primary {
   background: #16a34a;
-  color: #fff;
+  color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px;
+  padding: 14px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #15803d;
+}
+
+.btn-edit {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-edit:hover {
+  background: #1d4ed8;
+}
+
+.btn-delete {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-delete:hover {
+  background: #b91c1c;
 }
 
 .inline-msg {
-  margin-left: 10px;
-  font-weight: 500;
+  color: #22c55e;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 /* ================= TABLE ================= */
 .admin-table {
   width: 100%;
   border-collapse: collapse;
-  background: #020617;
-  border-radius: 10px;
-}
-
-.admin-table th,
-.admin-table td {
-  padding: 14px;
-  border-bottom: 1px solid #1f2937;
+  background: #111827;
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .admin-table th {
-  color: #f59e0b;
+  background: #1e293b;
+  color: #38bdf8;
+  padding: 18px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.admin-table td {
+  padding: 18px;
+  border-bottom: 1px solid #1e293b;
+  color: #e2e8f0;
+  vertical-align: middle;
 }
 
 .admin-table tr:hover {
-  background: rgba(37, 99, 235, 0.15);
+  background: rgba(59, 130, 246, 0.08);
 }
 
-/* ================= IMAGE ================= */
-.product-img {
-  width: 45px;
-  height: 45px;
+/* ================= PRODUCT IMAGE ================= */
+.admin-table img {
+  width: 90px;
+  height: 90px;
   object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid #374151;
-}
-
-/* ================= ACTIONS ================= */
-.btn-delete {
-  background: #dc2626;
-  color: #fff;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
+  border-radius: 12px;
+  border: 2px solid #334155;
+  background: #0f172a;
+  display: block;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -161,111 +207,19 @@
     width: 100%;
     flex-direction: row;
     gap: 10px;
+    overflow-x: auto;
   }
-}
 
-.btn-edit {
-  background: #f59e0b;
-  color: #000;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-right: 6px;
-}
+  .admin-content {
+    padding: 15px;
+  }
 
-/* PRODUCT IMAGE */
-.admin-table img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  padding: 3px;
-  background: #fff;
-}
+  .product-form {
+    grid-template-columns: 1fr;
+  }
 
-/* TABLE */
-.admin-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.admin-table th {
-  background: #111827;
-  color: white;
-  padding: 14px;
-  text-align: left;
-}
-
-.admin-table td {
-  padding: 14px;
-  border-bottom: 1px solid #eee;
-  vertical-align: middle;
-}
-
-/* BUTTONS */
-.btn-edit {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  margin-right: 8px;
-  cursor: pointer;
-}
-
-.btn-delete {
-  background: #dc2626;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.btn-edit:hover {
-  background: #1d4ed8;
-}
-
-.btn-delete:hover {
-  background: #b91c1c;
-}
-
-/* FORM */
-.product-form {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.product-form input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.btn-primary {
-  background: #16a34a;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: #15803d;
-}
-
-/* PAGE */
-.page-title {
-  margin-bottom: 20px;
-  font-size: 28px;
-  font-weight: bold;
+  .admin-table {
+    display: block;
+    overflow-x: auto;
+  }
 }
